@@ -1,39 +1,25 @@
-import polars as pl
+import pandas as pd
 
 from evaluate.evaluate_model import get_model_score
 
 
 def test_evaluate_model():
-    actual_demand = pl.DataFrame(
-        [
-            ("2025-01-01", 1),
-            ("2025-01-02", 0),
-            ("2025-01-03", 7),
-            ("2025-01-04", 2),
-            ("2025-01-05", 4),
-        ],
-        ["date","demand"]
-    )
+    actual_demand = pd.DataFrame({
+        "date":   ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05"],
+        "demand": [1, 0, 7, 2, 4],
+    })
 
-    forecasted_demand = pl.DataFrame(
-        [
-            ("2025-01-01", 0), # 1
-            ("2025-01-02", 1), # -1
-            ("2025-01-03", 0), # 7
-            ("2025-01-04", 7), # -5
-            ("2025-01-05", 2), # 2
-        ],
-        ["date","forecast"]
-    )
+    forecasted_demand = pd.DataFrame({
+        "date":     ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05"],
+        "forecast": [0, 1, 0, 7, 2],  # errors: 1, -1, 7, -5, 2
+    })
 
     result = get_model_score(actual_demand, forecasted_demand)
 
-    expected_result = pl.DataFrame(
-        [
-            (3.2, 4, 7.2)
-        ],
-        ["mae","bias","score"]
-    )
+    expected = pd.DataFrame({
+        "mae":   [3.2],
+        "bias":  [4.0],
+        "score": [7.2],
+    })
 
-    assert result.equals(expected_result)
-
+    pd.testing.assert_frame_equal(result, expected, check_dtype=False)
