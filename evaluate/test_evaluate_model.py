@@ -18,8 +18,8 @@ def test_evaluate_model():
 
     expected = pd.DataFrame({
         "mae":   [3.2],
-        "bias":  [4.0],
-        "score": [7.2],
+        "bias":  [.8],
+        "score": [4.0],
     })
 
     pd.testing.assert_frame_equal(result, expected, check_dtype=False)

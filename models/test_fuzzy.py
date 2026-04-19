@@ -1,12 +1,13 @@
 import pandas as pd
 
-from models.fuzzy import TriangularFuzzySet, ShoulderFuzzySet, fuzzify, fuzzy_forecast, \
-    prepare_fuzzified_forecast_demand_df
-from utilities.utils import d, assert_pd_equal_ignore_order
+from models.fuzzy import TriangularFuzzySet, ShoulderFuzzySet, fuzzy_forecast, \
+    prepare_fuzzified_forecast_demand_df, fuzzify_by_set_name
+from utilities.utils import parse_date, assert_pd_equal_ignore_order
 
-VH_D = 'VeryHighDemand'
-H_D = 'HighDemand'
-L_D = 'LowDemand'
+VERY_HIGH_DEMAND = 'VeryHighDemand'
+HIGH_DEMAND = 'HighDemand'
+LOW_DEMAND = 'LowDemand'
+
 
 def test_triangular_fuzzy_set():
     f_set = TriangularFuzzySet(1, 4, 10)
@@ -55,34 +56,33 @@ def test_fuzzify():
             "direction": "left",
         },
         {
-            "name": "LowDemand",
+            "name": LOW_DEMAND,
             "type": "triangular",
             "a": 1,
             "b": 3,
             "c": 7,
         }
     ]
-    x = 2
-    assert fuzzify(fuzzy_list, x) == "VeryLowDemand"
-
+    demand_value = 2
+    assert fuzzify_by_set_name(fuzzy_list, demand_value) == "VeryLowDemand"
 
 
 def test_fuzzy_forecast_two_rule_firing():
     rule_base = pd.DataFrame([
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': H_D, 'demand': 4},
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': VH_D, 'demand': 8},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'demand': 4},
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'demand': 8},
     ])
 
     fuzzified_demand_df = pd.DataFrame([
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': L_D, 'lag_1_membership': 0.3, 'lag_2_membership': 0.5},
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': VH_D, 'lag_1_membership': 0.3, 'lag_2_membership': 0.7},
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': H_D, 'lag_1_membership': 0.3, 'lag_2_membership': 0.4},# matched rule
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': VH_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.7},# matched rule
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': H_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.4},
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': L_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.5},
-        {'lag_1_fuzzy_set': VH_D, 'lag_2_fuzzy_set': L_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.5},
-        {'lag_1_fuzzy_set': VH_D, 'lag_2_fuzzy_set': H_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.4},
-        {'lag_1_fuzzy_set': VH_D, 'lag_2_fuzzy_set': VH_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.7},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': LOW_DEMAND, 'lag_1_membership': 0.3, 'lag_2_membership': 0.5},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'lag_1_membership': 0.3, 'lag_2_membership': 0.7},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'lag_1_membership': 0.3, 'lag_2_membership': 0.4},  # matched rule
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.7},  # matched rule
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.4},
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': LOW_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.5},
+        {'lag_1_fuzzy_set': VERY_HIGH_DEMAND, 'lag_2_fuzzy_set': LOW_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.5},
+        {'lag_1_fuzzy_set': VERY_HIGH_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.4},
+        {'lag_1_fuzzy_set': VERY_HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.7},
     ])
 
     firing_strengths = (.3 * .4) + (.2 * .7)
@@ -101,23 +101,21 @@ def test_fuzzy_forecast_two_rule_firing():
 
 
 def test_fuzzy_forecast_no_rule_firing():
-
-
     rule_base = pd.DataFrame([
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': H_D, 'demand': 4},
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': VH_D, 'demand': 8},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'demand': 4},
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'demand': 8},
     ])
 
     fuzzified_demand_df = pd.DataFrame([
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': L_D, 'lag_1_membership': 0, 'lag_2_membership': 0.5},
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': VH_D, 'lag_1_membership': 0, 'lag_2_membership': 0.7},
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': H_D, 'lag_1_membership': 0, 'lag_2_membership': 0.4},
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': VH_D, 'lag_1_membership': 0, 'lag_2_membership': 0.7},
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': H_D, 'lag_1_membership': 0, 'lag_2_membership': 0.4},
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': L_D, 'lag_1_membership': 0, 'lag_2_membership': 0.5},
-        {'lag_1_fuzzy_set': VH_D, 'lag_2_fuzzy_set': L_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.5},
-        {'lag_1_fuzzy_set': VH_D, 'lag_2_fuzzy_set': H_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.4},
-        {'lag_1_fuzzy_set': VH_D, 'lag_2_fuzzy_set': VH_D, 'lag_1_membership': 0.2, 'lag_2_membership': 0.7},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': LOW_DEMAND, 'lag_1_membership': 0, 'lag_2_membership': 0.5},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'lag_1_membership': 0, 'lag_2_membership': 0.7},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'lag_1_membership': 0, 'lag_2_membership': 0.4},
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'lag_1_membership': 0, 'lag_2_membership': 0.7},
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'lag_1_membership': 0, 'lag_2_membership': 0.4},
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': LOW_DEMAND, 'lag_1_membership': 0, 'lag_2_membership': 0.5},
+        {'lag_1_fuzzy_set': VERY_HIGH_DEMAND, 'lag_2_fuzzy_set': LOW_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.5},
+        {'lag_1_fuzzy_set': VERY_HIGH_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.4},
+        {'lag_1_fuzzy_set': VERY_HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'lag_1_membership': 0.2, 'lag_2_membership': 0.7},
     ])
 
     actual_forecast = fuzzy_forecast(rule_base, fuzzified_demand_df)
@@ -127,33 +125,32 @@ def test_fuzzy_forecast_no_rule_firing():
 
 def test_prepare_fuzzified_forecast_demand_df():
     demand_df = pd.DataFrame([
-        {'date': d('2026-02-03'), 'demand': 2},
-        {'date': d('2026-02-04'), 'demand': 4},
-
+        {'date': parse_date('2026-02-03'), 'demand': 2},
+        {'date': parse_date('2026-02-04'), 'demand': 4},
     ])
 
     rule_base = pd.DataFrame([
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': H_D, 'demand': 4},
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': VH_D, 'demand': 8},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'demand': 4},
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'demand': 8},
     ])
 
     fuzzy_list = [
         {
-            "name": L_D,
+            "name": LOW_DEMAND,
             "type": "shoulder",
             "a": 1,
             "b": 6,
             "direction": "left",
         },
         {
-            "name": H_D,
+            "name": HIGH_DEMAND,
             "type": "triangular",
             "a": 2,
             "b": 5,
             "c": 7,
         },
         {
-            "name": VH_D,
+            "name": VERY_HIGH_DEMAND,
             "type": "triangular",
             "a": 4,
             "b": 7,
@@ -162,8 +159,8 @@ def test_prepare_fuzzified_forecast_demand_df():
     ]
 
     expected_demand_df = pd.DataFrame([
-        {'lag_1_fuzzy_set': L_D, 'lag_2_fuzzy_set': H_D, 'lag_1_membership': 0.4, 'lag_2_membership': 0},
-        {'lag_1_fuzzy_set': H_D, 'lag_2_fuzzy_set': VH_D, 'lag_1_membership': 2/3, 'lag_2_membership': 0},
+        {'lag_1_fuzzy_set': LOW_DEMAND, 'lag_2_fuzzy_set': HIGH_DEMAND, 'lag_1_membership': 0.4, 'lag_2_membership': 0},
+        {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'lag_1_membership': 2/3, 'lag_2_membership': 0},
     ])
 
     actual_demand_df = prepare_fuzzified_forecast_demand_df(demand_df, fuzzy_list, rule_base)
