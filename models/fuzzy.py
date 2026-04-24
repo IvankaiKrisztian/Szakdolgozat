@@ -1,6 +1,8 @@
+import logging
 import operator
 
 import pandas as pd
+global no_rules_fired
 
 
 class TriangularFuzzySet:
@@ -102,9 +104,11 @@ def fuzzy_forecast(rule_base, fuzzified_demand_df):
     membership_cols = list(set(pred_df.columns) - set(rule_base_cols) - {'demand'})
     pred_df['firing_strength'] = pred_df[membership_cols].prod(axis=1)
     pred_df['rule_prediction'] = pred_df['firing_strength'] * pred_df['demand']
+    mean_demand = rule_base['demand'].mean()
     total_strengths = pred_df['firing_strength'].sum()
     if total_strengths <= 0:
-        return 0
+        logging.debug(f"Rule not fired!")
+        return mean_demand
     return pred_df['rule_prediction'].sum() / total_strengths
 
 
@@ -114,8 +118,8 @@ def prepare_fuzzified_forecast_demand_df(demand_df, fuzzy_list, rule_base):
     lagged_df['lag_1'] = lagged_df['demand']
     for i in range(2, lags + 1):
         lagged_df[f"lag_{i}"] = lagged_df['demand'].shift(i - 1)
-    lagged_df.dropna(inplace=True)
-    lagged_df = lagged_df.tail(1)
+    last_date = lagged_df['date'].max()
+    lagged_df = lagged_df[lagged_df['date'] == last_date]
     lagged_with_sets = lagged_df.drop(columns=['demand', 'date']).merge(rule_base, how='cross')
     return get_lags_membership_values(lagged_with_sets, lags, fuzzy_list).drop(columns=['demand'])
 
@@ -129,3 +133,17 @@ def get_lags_membership_values(lagged_with_sets, lags, fuzzy_list):
         lagged_with_sets[f"lag_{i}_membership"] = lagged_with_sets.apply(get_membership, axis=1)
         lagged_with_sets = lagged_with_sets.drop(columns=[f"lag_{i}"])
     return lagged_with_sets
+
+
+def get_linguistic_form(rule_base):
+    lags = len(rule_base.columns) - 1
+    lingustic_form = rule_base.copy()
+    for i in range(lags):
+        lag = i+1
+        if lag == 1:
+            lingustic_form[f"linguistic_form"] = "IF LAG 1 demand IS " + lingustic_form[f"lag_1_fuzzy_set"]
+        else:
+            lingustic_form[f"linguistic_form"] = lingustic_form[f"linguistic_form"] + f" AND LAG {lag} demand IS " + lingustic_form[f"lag_{lag}_fuzzy_set"]
+    lingustic_form["demand_as_string"] = lingustic_form["demand"].astype("str")
+    lingustic_form[f"linguistic_form"] = lingustic_form[f"linguistic_form"] + " THEN " + lingustic_form[f"demand_as_string"]
+    return lingustic_form[[f"linguistic_form"]]
