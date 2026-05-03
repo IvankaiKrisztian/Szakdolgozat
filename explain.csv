@@ -1,0 +1,3 @@
+,lag_1_fuzzy_set,lag_2_fuzzy_set,demand,lag_1_membership,lag_2_membership,firing_strength,rule_prediction,linguistic_form,demand_as_string
+0,LowDemand,HighDemand,4,0.3,0.4,0.12,0.48,IF LAG 1 demand IS LowDemand AND LAG 2 demand IS HighDemand THEN 4,4
+1,HighDemand,VeryHighDemand,8,0.2,0.7,0.13999999999999999,1.1199999999999999,IF LAG 1 demand IS HighDemand AND LAG 2 demand IS VeryHighDemand THEN 8,8
