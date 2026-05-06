@@ -8,7 +8,6 @@ import pandas
 
 import pandas as pd
 from matplotlib import pyplot as plt, pyplot
-
 from models.fuzzy import get_all_fuzzy_membership_values
 
 
@@ -47,12 +46,10 @@ def plot_average_by_group(sales, group_by,plot_rotation=0):
     plt.show()
 
 
-def get_split_date(date_array,split_percentage):
-    start_date = date_array.min()
-    end_date = date_array.max()
-    date_range = end_date - start_date
-    days_to_add_to_split = int(date_range.days * split_percentage)
-    return start_date + timedelta(days=days_to_add_to_split)
+def get_split_date(df,split_percentage):
+    number_of_observations = df['date'].count().max()
+    first_observations = df.head(int(number_of_observations*split_percentage)).tail(1).reset_index(drop=True)
+    return first_observations['date'][0]
 
 
 def get_date_features(sales_and_stock):
@@ -152,5 +149,31 @@ def plot_forecasts(test_data,forecast):
     plt.xticks(rotation=45)
     plt.legend()
     plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_actual_demand_and_2_prediction_model(test_data,fuzzy_model_pred,average_pred):
+    fig, ax = plt.subplots(figsize=(50, 25))  # ✅ returns (fig, ax)
+
+    ax.plot(test_data["date"], test_data["demand"],
+            label="Actual", color="steelblue", linewidth=2)
+    ax.plot(fuzzy_model_pred["date"], fuzzy_model_pred["prediction"],
+            label="Fuzzy prediction", color="tomato", linewidth=2, linestyle="--")
+    ax.plot(average_pred["date"], average_pred["prediction"],
+            label="Moving average prediction", color="green", linewidth=2, linestyle=":")
+
+    ax.set_title("Actual demand vs Fuzzy prediction vs Moving average prediction", fontsize=30)
+    ax.set_xlabel("Date", fontsize=30)
+    ax.set_ylabel("Demand", fontsize=30)
+    ax.tick_params(axis="both", labelsize=30)
+    plt.xticks(rotation=45)
+    ax.legend(fontsize=30)
+    ax.grid(True, alpha=0.3)
+
+    ax.margins(x=0)
+    ax.set_ylim(0, 125)
+    ax.set_xlim(test_data["date"].min(), test_data["date"].max())
+
     plt.tight_layout()
     plt.show()

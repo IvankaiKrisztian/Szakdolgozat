@@ -15,6 +15,6 @@ def test_forecast_moving_average():
 
     expected = 14 / 3
 
-    actual = forecast_moving_average(demand_df, lags)
+    actual,explanation = forecast_moving_average(demand_df, lags)
 
     assert actual == expected

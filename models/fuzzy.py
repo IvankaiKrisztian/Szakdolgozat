@@ -1,6 +1,7 @@
 import logging
 import operator
 
+import numpy as np
 import pandas as pd
 global no_rules_fired
 
@@ -126,12 +127,12 @@ def get_one_lag_all_fuzzification(demand_df, fuzzy_sets, col_name):
         all_fuzzy_sets.append(new_df)
     return pd.concat(all_fuzzy_sets)
 
-def fuzzy_forecast_pipeline(demand_df, fuzzy_list, rule_base):
-    prepared_df = prepare_fuzzified_forecast_demand_df(demand_df, fuzzy_list, rule_base)
-    return fuzzy_forecast(rule_base, prepared_df,fuzzy_list)
+def fuzzy_forecast_pipeline(demand_df, fuzzy_sets, rule_base):
+    prepared_df = prepare_fuzzified_forecast_demand_df(demand_df, fuzzy_sets, rule_base)
+    return fuzzy_forecast(rule_base, prepared_df,fuzzy_sets)
 
 
-def fuzzy_forecast(rule_base, fuzzified_demand_df):
+def fuzzy_forecast(rule_base, fuzzified_demand_df,fuzzy_sets):
     rule_base_cols = list(set(rule_base.columns) - {'demand'})
     pred_df = rule_base.merge(fuzzified_demand_df, on=rule_base_cols, how='inner')
     membership_cols = list(set(pred_df.columns) - set(rule_base_cols) - {'demand'})
@@ -142,7 +143,7 @@ def fuzzy_forecast(rule_base, fuzzified_demand_df):
     total_strengths = pred_df['firing_strength'].sum()
     if total_strengths <= 0:
         logging.debug(f"Rule not fired!")
-        return mean_demand, f"Rule not fired!"
+        return mean_demand, f"Rule not fired!" #fallback_to_midpoints(fuzzified_demand_df,fuzzy_sets), mean_demand
     return pred_df['rule_prediction'].sum() / total_strengths, explanation
 
 
@@ -185,3 +186,8 @@ def get_linguistic_form(rule_base,lags=7,form='rule_base'):
         return lingustic_form
 
 
+def fallback_to_midpoints(rule_base, fuzzy_sets):
+    f_sets_df = pd.DataFrame(fuzzy_sets)
+    result = rule_base.melt(var_name="lag_name",value_name="fuzzy_set_name").merge(f_sets_df, how='left', left_on='fuzzy_set_name', right_on='name')
+    result['midpoint'] = np.where(result['type'] =='shoulder', (result['a'] + result['b'])/2, result['b'])
+    return result['midpoint'].mean()

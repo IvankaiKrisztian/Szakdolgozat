@@ -48,7 +48,7 @@ def test_forecast_over_horizon_with_average(demand_df):
         {'date': parse_date('2027-01-05'), 'prediction': 28 / 7},
     ])
 
-    actual_df = forecast_over_horizon(demand_df, start_date, forecast_horizon, forecast_moving_average, [7])
+    actual_df = forecast_over_horizon(demand_df, start_date, forecast_horizon,7, forecast_moving_average, [7]).drop(columns=['explanation'])
 
     assert_pd_equal_ignore_order(actual_df, expected_df)
 
@@ -60,10 +60,10 @@ def test_forecast_over_horizon_with_fuzzy(demand_df):
     expected_df = pd.DataFrame([
         {'date': parse_date('2026-12-30'), 'prediction': 4.0},
         {'date': parse_date('2026-12-31'), 'prediction': 4.0},
-        {'date': parse_date('2027-01-01'), 'prediction': 0.0},
-        {'date': parse_date('2027-01-02'), 'prediction': 0.0},
-        {'date': parse_date('2027-01-03'), 'prediction': 0.0},
-        {'date': parse_date('2027-01-04'), 'prediction': 0.0},
+        {'date': parse_date('2027-01-01'), 'prediction': 4.25},
+        {'date': parse_date('2027-01-02'), 'prediction': 4.25},
+        {'date': parse_date('2027-01-03'), 'prediction': 4.25},
+        {'date': parse_date('2027-01-04'), 'prediction': 4.25},
         {'date': parse_date('2027-01-05'), 'prediction': 8.0},
     ])
 
@@ -96,6 +96,5 @@ def test_forecast_over_horizon_with_fuzzy(demand_df):
         {'lag_1_fuzzy_set': HIGH_DEMAND, 'lag_2_fuzzy_set': VERY_HIGH_DEMAND, 'demand': 8},
     ])
 
-    actual_df = forecast_over_horizon(demand_df, start_date, forecast_horizon, fuzzy_forecast_pipeline, [fuzzy_list, rule_base])
-
+    actual_df = forecast_over_horizon(demand_df, start_date, forecast_horizon,2, fuzzy_forecast_pipeline, [fuzzy_list, rule_base]).drop(columns=['explanation'])
     assert_pd_equal_ignore_order(actual_df, expected_df)

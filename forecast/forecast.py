@@ -40,3 +40,8 @@ def run_experiment_fuzzy_and_average_model(demand,split_date,lags_to_use,fuzzy_s
     fuzzy_score = get_model_score(test_data, fuzzy_model_forecast)
     moving_average_score = get_model_score(test_data, moving_average_forecast)
     return fuzzy_score, moving_average_score
+
+
+def explain_forecast(pred_df,date):
+    filtered = pred_df[pred_df["date"] == date]
+    return filtered['explanation'].head(1)[0]

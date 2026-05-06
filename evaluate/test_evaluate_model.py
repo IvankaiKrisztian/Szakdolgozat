@@ -11,7 +11,7 @@ def test_evaluate_model():
 
     forecasted_demand = pd.DataFrame({
         "date":     ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05"],
-        "forecast": [0, 1, 0, 7, 2],  # errors (forecast-demand): -1, 1, -7, 5, -2
+        "prediction": [0, 1, 0, 7, 2],  # errors (forecast-demand): -1, 1, -7, 5, -2
     })
 
     result = get_model_score(actual_demand, forecasted_demand)
