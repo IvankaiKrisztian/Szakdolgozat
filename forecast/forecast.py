@@ -105,9 +105,7 @@ def run_experiment_fuzzy_and_average_model(demand, split_date, lags_to_use, fuzz
     rule_base = create_rule_base_df(train_data, lags_to_use, fuzzy_sets)
 
     holidays_df = get_holidays_df()
-    test_data = test_data.merge(
-        holidays_df, how='left_anti', left_on='date', right_on='date'
-    ).drop(columns=['holiday'])
+    test_data = test_data[~test_data['date'].isin(holidays_df['date'])]
 
     validation_start_date = test_data['date'].min() + timedelta(days=lags_to_use)
     forecast_horizon = (test_data['date'].max() - validation_start_date).days + 1
