@@ -340,7 +340,7 @@
 390                30.0  
 394                58.0  
 396               48.25  "
-0,2025-09-23,49.576074531910834,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-09-23,49.57607453191085,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 161       LowDemand       LowDemand       LowDemand    MediumDemand   
 163       LowDemand       LowDemand    MediumDemand      HighDemand   
 169       LowDemand       LowDemand    MediumDemand    MediumDemand   
@@ -2301,7 +2301,7 @@
 314  52.333333333333336  
 403                67.0  
 406                26.0  "
-0,2025-10-01,43.89348432887139,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-01,43.893484328871395,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 197       LowDemand    MediumDemand       LowDemand    MediumDemand   
 198       LowDemand    MediumDemand       LowDemand    MediumDemand   
 220       LowDemand    MediumDemand   VeryLowDemand    MediumDemand   
@@ -2598,7 +2598,7 @@
 385               68.0  
 387  66.66666666666667  
 398               71.0  "
-0,2025-10-04,68.7336448839079,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-04,68.73364488390789,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 32       HighDemand      HighDemand       LowDemand       LowDemand   
 34       HighDemand      HighDemand       LowDemand    MediumDemand   
 50       HighDemand      HighDemand    MediumDemand       LowDemand   
@@ -2933,7 +2933,7 @@
 312                40.5  
 314  52.333333333333336  
 406                26.0  "
-0,2025-10-08,56.44040006824928,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-08,56.44040006824927,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 109      HighDemand    MediumDemand       LowDemand    MediumDemand   
 256    MediumDemand      HighDemand       LowDemand    MediumDemand   
 257    MediumDemand      HighDemand       LowDemand    MediumDemand   
@@ -2992,7 +2992,7 @@
 348                47.0  
 353                55.0  
 354  51.666666666666664  "
-0,2025-10-09,57.139886850285514,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-09,57.1398868502855,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 148       LowDemand      HighDemand    MediumDemand       LowDemand   
 185       LowDemand    MediumDemand      HighDemand       LowDemand   
 204       LowDemand    MediumDemand    MediumDemand       LowDemand   
@@ -4220,7 +4220,7 @@
 390                30.0  
 395   35.88888888888889  
 396               48.25  "
-0,2025-10-17,59.8738958820832,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-17,59.87389588208319,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 141       LowDemand      HighDemand      HighDemand      HighDemand   
 144       LowDemand      HighDemand      HighDemand    MediumDemand   
 145       LowDemand      HighDemand      HighDemand    MediumDemand   
@@ -4853,7 +4853,7 @@
 390                30.0  
 395   35.88888888888889  
 396               48.25  "
-0,2025-10-20,53.05109667515091,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-20,53.051096675150895,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 161       LowDemand       LowDemand       LowDemand    MediumDemand   
 168       LowDemand       LowDemand    MediumDemand       LowDemand   
 169       LowDemand       LowDemand    MediumDemand    MediumDemand   
@@ -5121,7 +5121,7 @@
 313                22.5  
 314  52.333333333333336  
 405                31.0  "
-0,2025-10-22,65.0259328477291,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-22,65.02593284772911,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 74       HighDemand       LowDemand       LowDemand       LowDemand   
 102      HighDemand    MediumDemand       LowDemand       LowDemand   
 104      HighDemand    MediumDemand       LowDemand       LowDemand   
@@ -5380,7 +5380,7 @@
 117  IF LAG 1 demand IS HighDemand AND LAG 2 demand...            133.0  
 118  IF LAG 1 demand IS HighDemand AND LAG 2 demand...            121.0  
 119  IF LAG 1 demand IS HighDemand AND LAG 2 demand...            164.0  "
-0,2025-10-25,113.55461971350613,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-25,113.55461971350611,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 10       HighDemand      HighDemand      HighDemand       LowDemand   
 18       HighDemand      HighDemand      HighDemand    MediumDemand   
 19       HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -5504,7 +5504,7 @@
 246               48.0  
 325               13.0  
 326               83.0  "
-0,2025-10-27,51.92668200115008,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-27,51.92668200115009,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 140       LowDemand      HighDemand      HighDemand      HighDemand   
 182       LowDemand    MediumDemand      HighDemand      HighDemand   
 202       LowDemand    MediumDemand    MediumDemand      HighDemand   
@@ -5551,7 +5551,7 @@
 239  61.666666666666664  
 325                13.0  
 358                41.0  "
-0,2025-10-28,64.76674812440352,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-28,64.7667481244035,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 70       HighDemand       LowDemand      HighDemand      HighDemand   
 71       HighDemand       LowDemand      HighDemand      HighDemand   
 88       HighDemand    MediumDemand      HighDemand      HighDemand   
@@ -5867,7 +5867,7 @@
 378                83.0  
 388                49.0  
 390                30.0  "
-0,2025-10-30,75.41162112013937,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-10-30,75.41162112013936,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 12       HighDemand      HighDemand      HighDemand       LowDemand   
 14       HighDemand      HighDemand      HighDemand    MediumDemand   
 20       HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -6775,7 +6775,7 @@
 129               53.0  
 130  70.66666666666667  
 132               90.0  "
-0,2025-11-03,46.107387687527485,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-03,46.10738768752748,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 138       LowDemand      HighDemand      HighDemand      HighDemand   
 141       LowDemand      HighDemand      HighDemand      HighDemand   
 146       LowDemand      HighDemand      HighDemand    MediumDemand   
@@ -7030,7 +7030,7 @@
 331  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             53.5  
 332  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             92.0  
 334  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             65.0  "
-0,2025-11-05,87.23358454409194,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-05,87.23358454409195,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 28       HighDemand      HighDemand       LowDemand      HighDemand   
 29       HighDemand      HighDemand       LowDemand      HighDemand   
 35       HighDemand      HighDemand    MediumDemand      HighDemand   
@@ -7197,7 +7197,7 @@
 359                43.0  
 361                75.0  
 363               110.0  "
-0,2025-11-06,60.51914195335489,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-06,60.51914195335488,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 9        HighDemand      HighDemand      HighDemand       LowDemand   
 14       HighDemand      HighDemand      HighDemand    MediumDemand   
 15       HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -7382,7 +7382,7 @@
 377  53.666666666666664  
 378                83.0  
 380                62.0  "
-0,2025-11-07,63.03192375602055,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-07,63.03192375602054,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 139       LowDemand      HighDemand      HighDemand      HighDemand   
 183       LowDemand    MediumDemand      HighDemand      HighDemand   
 186       LowDemand    MediumDemand      HighDemand    MediumDemand   
@@ -7635,7 +7635,7 @@
 380  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             62.0  
 391  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             61.5  
 394  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             58.0  "
-0,2025-11-09,38.008426314537196,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-09,38.00842631453719,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 149       LowDemand      HighDemand    MediumDemand    MediumDemand   
 197       LowDemand    MediumDemand       LowDemand    MediumDemand   
 198       LowDemand    MediumDemand       LowDemand    MediumDemand   
@@ -7993,7 +7993,7 @@
 413                43.0  
 415                25.0  
 416                45.0  "
-0,2025-11-11,62.630800427024624,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-11,62.63080042702462,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 79       HighDemand       LowDemand    MediumDemand      HighDemand   
 82       HighDemand       LowDemand    MediumDemand    MediumDemand   
 83       HighDemand       LowDemand    MediumDemand    MediumDemand   
@@ -8106,7 +8106,7 @@
 314  52.333333333333336  
 405                31.0  
 406                26.0  "
-0,2025-11-12,57.33348742025912,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-12,57.33348742025911,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 195       LowDemand    MediumDemand       LowDemand       LowDemand   
 198       LowDemand    MediumDemand       LowDemand    MediumDemand   
 219       LowDemand    MediumDemand   VeryLowDemand       LowDemand   
@@ -8189,7 +8189,7 @@
 348                47.0  
 352                53.0  
 354  51.666666666666664  "
-0,2025-11-13,59.94599633519364,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-13,59.94599633519363,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 80       HighDemand       LowDemand    MediumDemand       LowDemand   
 118      HighDemand    MediumDemand    MediumDemand       LowDemand   
 119      HighDemand    MediumDemand    MediumDemand       LowDemand   
@@ -8266,7 +8266,7 @@
 373               53.0  
 376  71.85714285714286  
 400              110.0  "
-0,2025-11-14,61.739140612172754,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-14,61.73914061217274,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 57       HighDemand      HighDemand    MediumDemand    MediumDemand   
 58       HighDemand      HighDemand    MediumDemand    MediumDemand   
 106      HighDemand    MediumDemand       LowDemand    MediumDemand   
@@ -8349,7 +8349,7 @@
 384               39.0  
 385               68.0  
 387  66.66666666666667  "
-0,2025-11-15,60.36444845357685,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-15,60.364448453576834,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 21       HighDemand      HighDemand      HighDemand    MediumDemand   
 22       HighDemand      HighDemand      HighDemand    MediumDemand   
 49       HighDemand      HighDemand    MediumDemand       LowDemand   
@@ -8533,7 +8533,7 @@
 386                40.5  
 389                18.0  
 395   35.88888888888889  "
-0,2025-11-17,58.14760828439563,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-17,58.14760828439564,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 138       LowDemand      HighDemand      HighDemand      HighDemand   
 141       LowDemand      HighDemand      HighDemand      HighDemand   
 145       LowDemand      HighDemand      HighDemand    MediumDemand   
@@ -8875,7 +8875,7 @@
 373                53.0  
 376   71.85714285714286  
 399                54.0  "
-0,2025-11-21,120.66534255666545,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-21,120.66534255666548,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 47       HighDemand      HighDemand    MediumDemand       LowDemand   
 48       HighDemand      HighDemand    MediumDemand       LowDemand   
 58       HighDemand      HighDemand    MediumDemand    MediumDemand   
@@ -9662,7 +9662,7 @@
 390                30.0  
 395   35.88888888888889  
 396               48.25  "
-0,2025-11-26,71.83296857831088,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-26,71.8329685783109,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 28       HighDemand      HighDemand       LowDemand      HighDemand   
 29       HighDemand      HighDemand       LowDemand      HighDemand   
 33       HighDemand      HighDemand       LowDemand    MediumDemand   
@@ -10027,7 +10027,7 @@
 390                30.0  
 394                58.0  
 396               48.25  "
-0,2025-11-27,61.88898290938502,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-27,61.888982909385035,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 9        HighDemand      HighDemand      HighDemand       LowDemand   
 12       HighDemand      HighDemand      HighDemand       LowDemand   
 14       HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -11062,7 +11062,7 @@
 393               61.2  
 394               58.0  
 396              48.25  "
-0,2025-11-30,42.906230931156394,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-11-30,42.90623093115639,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 138       LowDemand      HighDemand      HighDemand      HighDemand   
 141       LowDemand      HighDemand      HighDemand      HighDemand   
 146       LowDemand      HighDemand      HighDemand    MediumDemand   
@@ -11672,7 +11672,7 @@
 390                30.0  
 394                58.0  
 396               48.25  "
-0,2025-12-02,57.93035931488696,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-02,57.93035931488695,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 77       HighDemand       LowDemand    MediumDemand      HighDemand   
 79       HighDemand       LowDemand    MediumDemand      HighDemand   
 97       HighDemand    MediumDemand       LowDemand      HighDemand   
@@ -13100,7 +13100,7 @@
 390                30.0  
 395   35.88888888888889  
 396               48.25  "
-0,2025-12-08,57.08700333879814,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-08,57.08700333879812,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 150       LowDemand       LowDemand      HighDemand    MediumDemand   
 168       LowDemand       LowDemand    MediumDemand       LowDemand   
 173       LowDemand       LowDemand    MediumDemand    MediumDemand   
@@ -13174,7 +13174,7 @@
 218  IF LAG 1 demand IS LowDemand AND LAG 2 demand ...             49.0  
 415  IF LAG 1 demand IS VeryLowDemand AND LAG 2 dem...             25.0  
 416  IF LAG 1 demand IS VeryLowDemand AND LAG 2 dem...             45.0  "
-0,2025-12-09,47.23014923475003,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-09,47.23014923475004,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 83       HighDemand       LowDemand    MediumDemand    MediumDemand   
 282    MediumDemand       LowDemand       LowDemand      HighDemand   
 290    MediumDemand       LowDemand       LowDemand    MediumDemand   
@@ -13245,7 +13245,7 @@
 314  52.333333333333336  
 404                44.0  
 406                26.0  "
-0,2025-12-10,52.71559292730595,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-10,52.71559292730594,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 34       HighDemand      HighDemand       LowDemand    MediumDemand   
 108      HighDemand    MediumDemand       LowDemand    MediumDemand   
 109      HighDemand    MediumDemand       LowDemand    MediumDemand   
@@ -13411,7 +13411,7 @@
 373               53.0  
 376  71.85714285714286  
 400              110.0  "
-0,2025-12-12,69.32730073521184,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-12,69.32730073521185,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 3        HighDemand      HighDemand      HighDemand      HighDemand   
 19       HighDemand      HighDemand      HighDemand    MediumDemand   
 57       HighDemand      HighDemand    MediumDemand    MediumDemand   
@@ -14163,7 +14163,7 @@
 390                30.0  
 394                58.0  
 396               48.25  "
-0,2025-12-17,45.70088522776277,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-17,45.700885227762775,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 161       LowDemand       LowDemand       LowDemand    MediumDemand   
 163       LowDemand       LowDemand    MediumDemand      HighDemand   
 169       LowDemand       LowDemand    MediumDemand    MediumDemand   
@@ -14456,7 +14456,7 @@
 390                30.0  
 394                58.0  
 396               48.25  "
-0,2025-12-18,63.35395023389624,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-18,63.353950233896256,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 161       LowDemand       LowDemand       LowDemand    MediumDemand   
 168       LowDemand       LowDemand    MediumDemand       LowDemand   
 169       LowDemand       LowDemand    MediumDemand    MediumDemand   
@@ -15048,7 +15048,7 @@
 390                30.0  
 394                58.0  
 396               48.25  "
-0,2025-12-20,93.7515328669269,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-20,93.75153286692688,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 30       HighDemand      HighDemand       LowDemand       LowDemand   
 34       HighDemand      HighDemand       LowDemand    MediumDemand   
 46       HighDemand      HighDemand    MediumDemand       LowDemand   
@@ -15203,7 +15203,7 @@
 129               53.0  
 130  70.66666666666667  
 132               90.0  "
-0,2025-12-21,48.133610253146664,"   lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-21,48.13361025314666,"   lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 10      HighDemand      HighDemand      HighDemand       LowDemand   
 13      HighDemand      HighDemand      HighDemand       LowDemand   
 18      HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -15328,7 +15328,7 @@
 63               89.75  
 65                26.0  
 66                62.0  "
-0,2025-12-22,71.76634865055571,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-22,71.7663486505557,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 6        HighDemand      HighDemand      HighDemand      HighDemand   
 18       HighDemand      HighDemand      HighDemand    MediumDemand   
 19       HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -15734,7 +15734,7 @@
 320  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             47.0  
 355  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             86.0  
 357  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             31.0  "
-0,2025-12-30,111.88976767177462,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-30,111.88976767177459,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 77       HighDemand       LowDemand    MediumDemand      HighDemand   
 92       HighDemand    MediumDemand      HighDemand    MediumDemand   
 111      HighDemand    MediumDemand    MediumDemand      HighDemand   
@@ -15763,7 +15763,7 @@
 92   IF LAG 1 demand IS HighDemand AND LAG 2 demand...             80.0  
 111  IF LAG 1 demand IS HighDemand AND LAG 2 demand...            113.0  
 121  IF LAG 1 demand IS HighDemand AND LAG 2 demand...            191.0  "
-0,2025-12-31,74.7907817442386,"   lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2025-12-31,74.79078174423859,"   lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 33      HighDemand      HighDemand       LowDemand    MediumDemand   
 35      HighDemand      HighDemand    MediumDemand      HighDemand   
 40      HighDemand      HighDemand    MediumDemand      HighDemand   
@@ -15905,7 +15905,7 @@
 243  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             50.0  
 248  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             22.0  
 250  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             64.0  "
-0,2026-01-03,60.63584393779964,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-03,60.635843937799656,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 139       LowDemand      HighDemand      HighDemand      HighDemand   
 141       LowDemand      HighDemand      HighDemand      HighDemand   
 183       LowDemand    MediumDemand      HighDemand      HighDemand   
@@ -16005,7 +16005,7 @@
 
                                        linguistic_form demand_as_string  
 133  IF LAG 1 demand IS HighDemand AND LAG 2 demand...             27.0  "
-0,2026-01-12,61.9581869105702,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-12,61.95818691057019,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 142       LowDemand      HighDemand      HighDemand    MediumDemand   
 145       LowDemand      HighDemand      HighDemand    MediumDemand   
 146       LowDemand      HighDemand      HighDemand    MediumDemand   
@@ -16124,7 +16124,7 @@
 216                59.0  
 218                49.0  
 416                45.0  "
-0,2026-01-13,60.47984172416981,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-13,60.4798417241698,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 72       HighDemand       LowDemand      HighDemand      HighDemand   
 73       HighDemand       LowDemand      HighDemand    MediumDemand   
 79       HighDemand       LowDemand    MediumDemand      HighDemand   
@@ -16237,7 +16237,7 @@
 313                22.5  
 314  52.333333333333336  
 406                26.0  "
-0,2026-01-14,41.025864640626466,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-14,41.02586464062646,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 198       LowDemand    MediumDemand       LowDemand    MediumDemand   
 220       LowDemand    MediumDemand   VeryLowDemand    MediumDemand   
 255    MediumDemand      HighDemand       LowDemand      HighDemand   
@@ -16381,7 +16381,7 @@
 290  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             49.0  
 298  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             49.0  
 307  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             97.0  "
-0,2026-01-17,105.86363636363636,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-17,105.86363636363637,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 32       HighDemand      HighDemand       LowDemand       LowDemand   
 34       HighDemand      HighDemand       LowDemand    MediumDemand   
 108      HighDemand    MediumDemand       LowDemand    MediumDemand   
@@ -16405,7 +16405,7 @@
 32   IF LAG 1 demand IS HighDemand AND LAG 2 demand...            138.0  
 34   IF LAG 1 demand IS HighDemand AND LAG 2 demand...            100.0  
 108  IF LAG 1 demand IS HighDemand AND LAG 2 demand...             76.0  "
-0,2026-01-18,51.52272727272727,"   lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-18,51.522727272727266,"   lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 11      HighDemand      HighDemand      HighDemand       LowDemand   
 13      HighDemand      HighDemand      HighDemand       LowDemand   
 51      HighDemand      HighDemand    MediumDemand       LowDemand   
@@ -16429,7 +16429,7 @@
 11  IF LAG 1 demand IS HighDemand AND LAG 2 demand...             52.0  
 13  IF LAG 1 demand IS HighDemand AND LAG 2 demand...             54.0  
 51  IF LAG 1 demand IS HighDemand AND LAG 2 demand...             28.0  "
-0,2026-01-19,71.16590389016018,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-19,71.1659038901602,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 144       LowDemand      HighDemand      HighDemand    MediumDemand   
 234    MediumDemand      HighDemand      HighDemand      HighDemand   
 235    MediumDemand      HighDemand      HighDemand      HighDemand   
@@ -16501,7 +16501,7 @@
 
                                       linguistic_form demand_as_string  
 35  IF LAG 1 demand IS HighDemand AND LAG 2 demand...             76.0  "
-0,2026-01-29,82.52540540540541,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-29,82.5254054054054,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 14       HighDemand      HighDemand      HighDemand    MediumDemand   
 17       HighDemand      HighDemand      HighDemand    MediumDemand   
 241    MediumDemand      HighDemand      HighDemand       LowDemand   
@@ -16554,7 +16554,7 @@
 139  IF LAG 1 demand IS LowDemand AND LAG 2 demand ...             47.0  
 236  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             66.5  
 322  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             79.0  "
-0,2026-01-31,52.04123711340207,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-01-31,52.04123711340206,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 275    MediumDemand       LowDemand      HighDemand      HighDemand   
 296    MediumDemand       LowDemand    MediumDemand      HighDemand   
 318    MediumDemand    MediumDemand      HighDemand      HighDemand   
@@ -16588,7 +16588,7 @@
 318  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             23.0  
 320  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             47.0  
 357  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             31.0  "
-0,2026-02-01,55.246209633920415,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-02-01,55.24620963392041,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 164       LowDemand       LowDemand    MediumDemand      HighDemand   
 200       LowDemand    MediumDemand    MediumDemand      HighDemand   
 201       LowDemand    MediumDemand    MediumDemand      HighDemand   
@@ -16746,7 +16746,7 @@
 308  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             61.0  
 313  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             22.5  
 405  IF LAG 1 demand IS MediumDemand AND LAG 2 dema...             31.0  "
-0,2026-02-04,58.52927706041256,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-02-04,58.52927706041257,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 74       HighDemand       LowDemand       LowDemand       LowDemand   
 102      HighDemand    MediumDemand       LowDemand       LowDemand   
 104      HighDemand    MediumDemand       LowDemand       LowDemand   
@@ -17020,7 +17020,7 @@
 375               66.0  
 376  71.85714285714286  
 400              110.0  "
-0,2026-02-06,71.97720652590051,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-02-06,71.9772065259005,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 10       HighDemand      HighDemand      HighDemand       LowDemand   
 18       HighDemand      HighDemand      HighDemand    MediumDemand   
 19       HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -17419,7 +17419,7 @@
 358                41.0  
 392                22.5  
 395   35.88888888888889  "
-0,2026-02-09,55.88184257323495,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-02-09,55.88184257323494,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 138       LowDemand      HighDemand      HighDemand      HighDemand   
 141       LowDemand      HighDemand      HighDemand      HighDemand   
 146       LowDemand      HighDemand      HighDemand    MediumDemand   
@@ -18759,7 +18759,7 @@
 390                30.0  
 394                58.0  
 396               48.25  "
-0,2026-02-13,85.33878622106221,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-02-13,85.3387862210622,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 3        HighDemand      HighDemand      HighDemand      HighDemand   
 4        HighDemand      HighDemand      HighDemand      HighDemand   
 20       HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -19380,7 +19380,7 @@
 61                49.0  
 65                26.0  
 66                62.0  "
-0,2026-02-16,58.56354351937735,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-02-16,58.56354351937734,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 138       LowDemand      HighDemand      HighDemand      HighDemand   
 139       LowDemand      HighDemand      HighDemand      HighDemand   
 141       LowDemand      HighDemand      HighDemand      HighDemand   
@@ -19840,7 +19840,7 @@
 365  53.333333333333336  
 377  53.666666666666664  
 378                83.0  "
-0,2026-02-20,96.90463045267809,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-02-20,96.90463045267813,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 4        HighDemand      HighDemand      HighDemand      HighDemand   
 5        HighDemand      HighDemand      HighDemand      HighDemand   
 20       HighDemand      HighDemand      HighDemand    MediumDemand   
@@ -20175,7 +20175,7 @@
 335                60.0  
 355                86.0  
 356  43.333333333333336  "
-0,2026-02-26,60.111324170313964,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
+0,2026-02-26,60.11132417031396,"    lag_1_fuzzy_set lag_2_fuzzy_set lag_3_fuzzy_set lag_4_fuzzy_set  \
 14       HighDemand      HighDemand      HighDemand    MediumDemand   
 17       HighDemand      HighDemand      HighDemand    MediumDemand   
 44       HighDemand      HighDemand    MediumDemand       LowDemand   
