@@ -1,7 +1,8 @@
 """
 Model evaluation — Vandeput combined score.
 
-Reference: N. Vandeput, "Inventory Optimization", 2020.
+Reference: N. Vandeput, "Data Science for Supply Chain Forecasting", 2nd ed.,
+           De Gruyter, 2021.
 """
 
 import pandas as pd

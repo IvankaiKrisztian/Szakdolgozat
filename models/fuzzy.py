@@ -8,9 +8,9 @@ Training  : Fuzzify each historical demand value to its dominant set (argmax μ)
             antecedent patterns and average their crisp consequents into a rule base.
 
 Inference : For each input vector, compute full membership degrees across all sets,
-            compute per-rule firing strength as the product of antecedent memberships
-            (Mamdani conjunction), and return the firing-strength-weighted average of
-            consequent values (centre-of-gravity defuzzification over discrete rules).
+            compute per-rule firing strength as the algebraic product of antecedent
+            memberships (Larsen product t-norm), and return the firing-strength-weighted
+            average of crisp consequent values (zero-order Sugeno defuzzification).
             If no rule fires, fall back to the global mean of all rule consequents.
 """
 
@@ -230,7 +230,8 @@ def create_rule_base_df(df, lag_days, fuzzy_sets, fuzzification_type='highest'):
     2. Fuzzify each lag column using the selected strategy.
     3. Group all rows that share the same antecedent pattern
        (lag_1_fuzzy_set, …, lag_L_fuzzy_set) and average their crisp
-       consequent values — this is the Sung-Chiang rule aggregation method.
+       consequent values — following the Chen (1996) simplification of the
+       Song & Chissom (1993) fuzzy time series framework.
 
     The resulting rule base has one row per unique L-tuple of fuzzy set names,
     with 'demand' holding the averaged crisp consequent.
@@ -285,23 +286,23 @@ def fuzzy_forecast_pipeline(demand_df, fuzzy_sets, rule_base):
 
 def fuzzy_forecast(rule_base, fuzzified_demand_df, fuzzy_sets):
     """
-    Mamdani inference with centre-of-gravity defuzzification over a discrete
-    rule base.
+    Fuzzy inference using the Larsen product t-norm for conjunction and
+    zero-order Sugeno (weighted average) defuzzification over crisp consequents.
 
-    Firing strength for rule r:
+    Firing strength for rule r (Larsen product t-norm):
         w_r = prod_{i=1}^{L} mu_{A_i^r}(x_i)
 
     where A_i^r is the fuzzy set assigned to lag i in rule r, and x_i is the
-    i-th lag of the current input.  The product implements fuzzy conjunction.
+    i-th lag of the current input.  The algebraic product is the t-norm here;
+    Mamdani uses min instead.
 
-    Defuzzified output:
+    Defuzzified output (zero-order Sugeno weighted average):
         y_hat = sum_r (w_r * y_r) / sum_r w_r
 
     where y_r is the crisp consequent (averaged training output) of rule r.
 
     Fallback: if sum_r w_r = 0 (no rule fires), return the global mean of all
-    rule consequents — equivalent to a zero-order Takagi-Sugeno model with a
-    single constant rule.
+    rule consequents.
 
     Parameters
     ----------
@@ -317,7 +318,7 @@ def fuzzy_forecast(rule_base, fuzzified_demand_df, fuzzy_sets):
     pred_df = rule_base.merge(fuzzified_demand_df, on=rule_base_cols, how='inner')
 
     membership_cols = list(set(pred_df.columns) - set(rule_base_cols) - {'demand'})
-    # Product conjunction across all antecedent memberships
+    # Larsen product t-norm: multiply membership degrees across all antecedents
     pred_df['firing_strength'] = pred_df[membership_cols].prod(axis=1)
     pred_df['rule_prediction'] = pred_df['firing_strength'] * pred_df['demand']
 

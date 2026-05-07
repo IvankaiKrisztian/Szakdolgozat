@@ -71,7 +71,7 @@ in `models/fuzzy.py`.
 
 **Code:** `models/fuzzy.py → create_rule_base_df`
 
-**Algorithm (Sung-Chiang, 1993):**
+**Algorithm (Chen, 1996; building on Song & Chissom, 1993):**
 
 1. For each training observation x_t, create L lagged inputs:
    (x_{t-1}, x_{t-2}, …, x_{t-L}).
@@ -108,20 +108,24 @@ Compute μ_i(x_j) for all sets A_i and all lags j = 1…L.  Unlike training
 (which uses argmax), inference uses the continuous membership degree of
 whichever set the rule prescribes for that lag.
 
-**Step 2 — Firing strength (product conjunction):**
+**Step 2 — Firing strength (Larsen product t-norm):**
 For rule r with antecedent pattern (A_{1}^r, A_{2}^r, …, A_{L}^r):
 
     w_r = ∏_{j=1}^{L} μ_{A_j^r}(x_j)
 
-This is Mamdani product conjunction.  A rule fires only if every antecedent
-set has positive membership in the corresponding input.
+The algebraic product is used as the t-norm (conjunction operator).  This is
+the Larsen product inference method (Larsen, 1980) — distinct from the Mamdani
+system, which uses the minimum t-norm.  A rule fires only when every antecedent
+membership degree is positive.
 
-**Step 3 — Defuzzification (centre of gravity over discrete consequents):**
+**Step 3 — Defuzzification (zero-order Sugeno weighted average):**
 
     ŷ = Σ_r (w_r · y_r) / Σ_r w_r
 
-This is the weighted average of all fired rule consequents, equivalent to
-zero-order Takagi-Sugeno defuzzification applied to a discrete rule base.
+Each consequent y_r is a crisp scalar (the averaged training output for rule r),
+so the output is the firing-strength-weighted average of constants.  This is
+zero-order Sugeno (Takagi & Sugeno, 1985) defuzzification — not centre-of-gravity,
+which applies to Mamdani systems with continuous fuzzy output sets.
 
 **Fallback:** If Σ_r w_r = 0 (no rule fires), the prediction defaults to the
 global mean of all rule consequents.  This occurred in 13 of 159 test days
@@ -158,7 +162,7 @@ only the input window advances.  This avoids look-ahead bias.
 **Split:** 80% training / 20% test (chrono-ordered).  The first L days of the
 test window serve as the initial input and are not evaluated.
 
-**Score (Vandeput, 2020):**
+**Score (Vandeput, 2021):**
 
     e_t = ŷ_t - x_t           (positive = over-forecast)
     MAE = mean(|e_t|)
