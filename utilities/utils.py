@@ -250,7 +250,7 @@ def assert_pd_equal_ignore_order(actual, expected):
 # Visualisation
 # ---------------------------------------------------------------------------
 
-def plot_average_by_group(sales, group_by, plot_rotation=0):
+def plot_average_by_group(sales, group_by, plot_rotation=0, show_boxplot=False):
     """
     Line plot of mean sales grouped by a calendar feature.
 
@@ -259,23 +259,60 @@ def plot_average_by_group(sales, group_by, plot_rotation=0):
     sales : pd.DataFrame  Must contain 'sales' and the group_by column.
     group_by : str        One of: "month", "day_of_week", "year_quarter", "year".
     plot_rotation : int   X-tick label rotation in degrees.
+    show_boxplot : bool   If True, overlay a boxplot per group to show variation.
     """
-    plot_df = sales.groupby(group_by)['sales'].mean()
+    groups = sales.groupby(group_by)['sales']
+    positions = sorted(sales[group_by].unique())
+    means = [groups.get_group(p).mean() for p in positions]
 
     fig, ax = plt.subplots()
-    ax.plot(plot_df.index, plot_df.values)
 
-    ax.set_xticks(plot_df.index)
-    if group_by == 'month':
-        ax.set_xticklabels([calendar.month_abbr[m] for m in plot_df.index], rotation=plot_rotation)
-    elif group_by == 'day_of_week':
-        ax.set_xticklabels([calendar.day_name[d] for d in plot_df.index], rotation=plot_rotation)
+    if show_boxplot:
+        data = [groups.get_group(p).values for p in positions]
+        ax.boxplot(
+            data,
+            positions=positions,
+            widths=0.4,
+            patch_artist=True,
+            boxprops=dict(facecolor='lightblue', alpha=0.6),
+            medianprops=dict(color='orange', linewidth=3),
+            whiskerprops=dict(linewidth=2),
+            capprops=dict(linewidth=2),
+            flierprops=dict(marker='o', markersize=4, alpha=0.5),
+            manage_ticks=False,
+        )
+
+    ax.plot(positions, means, linewidth=5, color='steelblue',
+            marker='o', markersize=8, label='Mean', zorder=5)
+
+    ax.set_xticks(positions)
+    if group_by == 'day_of_week':
+        ax.set_xticklabels([calendar.day_name[d] for d in positions], rotation=plot_rotation)
 
     ax.set_xlabel(group_by)
-    ax.set_ylabel('Average Sales')
+    ax.set_ylabel('Sales')
+    if show_boxplot:
+        ax.legend()
     plt.tight_layout()
     plt.show()
 
+def plot_monthly_by_year(sales, plot_rotation=0):
+  """
+  Line plot of mean monthly sales with each year as a separate line.
+  """
+  plot_df = sales.groupby(['year', 'month'])['sales'].mean().unstack(level=0)
+
+  fig, ax = plt.subplots()
+  for year in plot_df.columns:
+      ax.plot(plot_df.index, plot_df[year], marker='o', linewidth=5, label=str(year),markersize=10)
+
+  ax.set_xticks(range(1, 13))
+  ax.set_xticklabels([calendar.month_abbr[m] for m in range(1, 13)], rotation=plot_rotation)
+  ax.set_xlabel('Month')
+  ax.set_ylabel('Average Sales')
+  ax.legend(loc='upper left', bbox_to_anchor=(1, 1), title='Year')
+  plt.tight_layout()
+  plt.show()
 
 def plot_fuzzy_sets_memberships(fuzzy_sets, min_value, max_value):
     """
@@ -302,7 +339,7 @@ def plot_fuzzy_sets_memberships(fuzzy_sets, min_value, max_value):
     order = ["VeryLowDemand", "LowDemand", "MediumDemand", "HighDemand", "VeryHighDemand"]
     for group in order:
         data = show_sets[show_sets["fuzzy_set"] == group]
-        plt.plot(data["demand"], data["membership"], label=group)
+        plt.plot(data["demand"], data["membership"], label=group,linewidth=5)
     plt.legend(loc="upper left", bbox_to_anchor=(1, 1))
     plt.tight_layout()
     plt.show()
@@ -319,11 +356,11 @@ def plot_imputed_values_with_missing_stock(demand):
     demand : pd.DataFrame  Columns: date, demand, out_of_stock.
     """
     fig, ax = plt.subplots()
-    ax.plot(demand['date'], demand['demand'], label='Demand')
+    ax.plot(demand['date'], demand['demand'], label='Demand',linewidth=5,marker='o',markersize=10,markerfacecolor='black')
 
     oos = demand[demand['out_of_stock']]
     oos['date'] = pd.to_datetime(oos['date'], format='%Y.%m.%d')
-    ax.scatter(oos['date'], oos['demand'], color='red', s=10, label='Out of stock', zorder=5)
+    ax.scatter(oos['date'], oos['demand'], color='red', s=10, label='Interpolated', zorder=5,linewidths=5)
 
     ax.legend()
     fig.autofmt_xdate()
@@ -341,9 +378,9 @@ def plot_forecasts(test_data, forecast):
     """
     plt.figure(figsize=(20, 10))
     plt.plot(test_data["date"], test_data["demand"],
-             label="Actual", color="steelblue", linewidth=2)
+             label="Actual", color="steelblue", linewidth=5)
     plt.plot(forecast["date"], forecast["prediction"],
-             label="Prediction", color="tomato", linewidth=2, linestyle="--")
+             label="Prediction", color="tomato", linewidth=5, linestyle="--")
 
     plt.title("Actual vs Predicted Demand")
     plt.xlabel("Date")
@@ -368,20 +405,19 @@ def plot_actual_demand_and_2_prediction_model(test_data, fuzzy_model_pred, avera
     fig, ax = plt.subplots(figsize=(50, 25))
 
     ax.plot(test_data["date"], test_data["demand"],
-            label="Actual", color="steelblue", linewidth=2)
+            label="Actual", color="steelblue", linewidth=15)
     ax.plot(fuzzy_model_pred["date"], fuzzy_model_pred["prediction"],
-            label="Fuzzy prediction", color="tomato", linewidth=2, linestyle="--")
+            label="Fuzzy prediction", color="tomato", linewidth=15, linestyle="--")
     ax.plot(average_pred["date"], average_pred["prediction"],
-            label="Moving average prediction", color="green", linewidth=2, linestyle=":")
+            label="Moving average prediction", color="green", linewidth=15, linestyle=":")
 
-    ax.set_title("Actual demand vs Fuzzy prediction vs Moving average prediction", fontsize=30)
-    ax.set_xlabel("Date", fontsize=30)
-    ax.set_ylabel("Demand", fontsize=30)
-    ax.tick_params(axis="both", labelsize=30)
-    plt.xticks(rotation=45)
-    ax.legend(fontsize=30)
+    ax.set_title("Actual demand vs Fuzzy prediction vs Moving average prediction", fontsize=100)
+    ax.set_xlabel("Date", fontsize=50)
+    ax.set_ylabel("Demand", fontsize=50)
+    ax.tick_params(axis="both", labelsize=50)
+    ax.legend(fontsize=50)
     ax.grid(True, alpha=0.3)
-
+    plt.xticks(rotation=45)
     ax.margins(x=0)
     ax.set_ylim(0, 125)
     ax.set_xlim(test_data["date"].min(), test_data["date"].max())
